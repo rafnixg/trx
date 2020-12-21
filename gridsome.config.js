@@ -11,7 +11,21 @@ module.exports = {
   siteName: 'TRX Functional Training',
   siteUrl: 'https://www.jesuslezamatrx.com',
   description: 'Jesús Lezama TRX Functional Training',
-  plugins: [],
+  plugins: [
+    {
+      use: '@gridsome/source-strapi',
+      options: {
+        apiURL:  process.env.GRIDSOME_API_URL,
+        queryLimit: 1000,
+        contentTypes: ['descuentos', 'plans', 'testimonios', 'youtube'],
+        singleTypes: [],
+        loginData: {
+          identifier: '',
+          password: ''
+        }
+      }
+    }
+  ],
   css: {
     loaderOptions: {
       /*css: {

@@ -12,35 +12,55 @@
   }
 }
 </style>
+<static-query>
+  query {
+    plans: allStrapiPlans {
+      edges {
+        node {
+          id
+          name
+          condition
+          features
+          price
+        }
+      }
+    }
+  }
+</static-query>
 <script>
-import UserNav from "~/components/UserNav/UserNav";
-import PlanList from "~/components/PlanList/PlanList";
+import UserNav from '~/components/UserNav/UserNav';
+import PlanList from '~/components/PlanList/PlanList';
 
-import Plans from "~/data/plans-memberships.json";
+import Plans from '~/data/plans-memberships.json';
 
 export default {
-  name: "Payment",
+  name: 'Payment',
   metaInfo: {
-    title: "Pago",
+    title: 'Pago',
     meta: [
       {
-        name: "description",
-        content: "Pago",
+        name: 'description',
+        content: 'Pago'
       },
       {
-        name: "keywords",
-        content: "Pago, Training, TRX Trainer",
-      },
-    ],
+        name: 'keywords',
+        content: 'Pago, Training, TRX Trainer'
+      }
+    ]
   },
   components: {
     UserNav,
-    PlanList,
+    PlanList
   },
   data() {
     return {
-      plans: Plans,
+      plans: Plans
     };
   },
+  mounte() {
+    if (!this.$cookies.isKey('session')) {
+      this.$router.push('/');
+    }
+  }
 };
 </script>

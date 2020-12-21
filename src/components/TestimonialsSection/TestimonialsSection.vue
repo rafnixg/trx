@@ -1,10 +1,10 @@
 <template src="./TestimonialsSection.html"></template>
 <style lang="scss" scoped src="./TestimonialsSection.scss"></style>
 <script>
-import VueSlickCarousel from "vue-slick-carousel";
+import VueSlickCarousel from 'vue-slick-carousel';
 
 export default {
-  name: "TestimonialsSection",
+  name: 'TestimonialsSection',
   components: {
     VueSlickCarousel
   },
@@ -32,13 +32,14 @@ export default {
   },
   data() {
     return {
+      apiUrl: process.env.GRIDSOME_API_URL,
       settings: {
         arrows: true,
         dots: true,
         infinite: true,
         speed: 300,
         slidesToShow: 1
-      },
+      }
     };
   },
   methods: {
